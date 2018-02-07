@@ -1,0 +1,353 @@
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,641][WARN ][cluster.action.shard     ] [Mister Jip] [test][0] received shard failed for target shard [[test][0], node[roNfb3XCSlCr8FTriBJBlQ], [P], v[5], s[INITIALIZING], a[id=PhSXQn51TWeZFZHSdxj7tQ], unassigned_info[[reason=ALLOCATION_FAILED], at[2018-02-07T10:48:38.635Z], details[failed recovery, failure IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]]], indexUUID [A9Xb_5MlQjywA0keOtIwBQ], message [failed recovery], failure [IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,645][WARN ][indices.cluster          ] [Mister Jip] [[test][0]] marking and sending shard failed due to [failed recovery]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,645][WARN ][cluster.action.shard     ] [Mister Jip] [test][0] received shard failed for target shard [[test][0], node[roNfb3XCSlCr8FTriBJBlQ], [P], v[5], s[INITIALIZING], a[id=Q7-3sFdAQC6CyfgoKB3V5g], unassigned_info[[reason=ALLOCATION_FAILED], at[2018-02-07T10:48:38.641Z], details[failed recovery, failure IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]]], indexUUID [A9Xb_5MlQjywA0keOtIwBQ], message [failed recovery], failure [IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,650][WARN ][indices.cluster          ] [Mister Jip] [[test][0]] marking and sending shard failed due to [failed recovery]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,650][WARN ][cluster.action.shard     ] [Mister Jip] [test][0] received shard failed for target shard [[test][0], node[roNfb3XCSlCr8FTriBJBlQ], [P], v[5], s[INITIALIZING], a[id=yJEla_wJTueWa3OnRvB_Bw], unassigned_info[[reason=ALLOCATION_FAILED], at[2018-02-07T10:48:38.646Z], details[failed recovery, failure IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]]], indexUUID [A9Xb_5MlQjywA0keOtIwBQ], message [failed recovery], failure [IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,655][WARN ][indices.cluster          ] [Mister Jip] [[test][0]] marking and sending shard failed due to [failed recovery]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,655][WARN ][cluster.action.shard     ] [Mister Jip] [test][0] received shard failed for target shard [[test][0], node[roNfb3XCSlCr8FTriBJBlQ], [P], v[5], s[INITIALIZING], a[id=v6gTj8crR--zbJvVF-y94A], unassigned_info[[reason=ALLOCATION_FAILED], at[2018-02-07T10:48:38.650Z], details[failed recovery, failure IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]]], indexUUID [A9Xb_5MlQjywA0keOtIwBQ], message [failed recovery], failure [IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,661][WARN ][indices.cluster          ] [Mister Jip] [[test][0]] marking and sending shard failed due to [failed recovery]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,661][WARN ][cluster.action.shard     ] [Mister Jip] [test][0] received shard failed for target shard [[test][0], node[roNfb3XCSlCr8FTriBJBlQ], [P], v[5], s[INITIALIZING], a[id=opoWu79aTvKzb7d9hGaC3Q], unassigned_info[[reason=ALLOCATION_FAILED], at[2018-02-07T10:48:38.656Z], details[failed recovery, failure IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]]], indexUUID [A9Xb_5MlQjywA0keOtIwBQ], message [failed recovery], failure [IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,667][WARN ][indices.cluster          ] [Mister Jip] [[test][0]] marking and sending shard failed due to [failed recovery]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
+[2018-02-07 10:48:38,667][WARN ][cluster.action.shard     ] [Mister Jip] [test][0] received shard failed for target shard [[test][0], node[roNfb3XCSlCr8FTriBJBlQ], [P], v[5], s[INITIALIZING], a[id=N4lNnkZkRCKyOQa_Y17uFA], unassigned_info[[reason=ALLOCATION_FAILED], at[2018-02-07T10:48:38.661Z], details[failed recovery, failure IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]]], indexUUID [A9Xb_5MlQjywA0keOtIwBQ], message [failed recovery], failure [IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog]; ]
+[test][[test][0]] IndexShardRecoveryException[failed to recovery from gateway]; nested: EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:250)
+	at org.elasticsearch.index.shard.StoreRecoveryService.access$100(StoreRecoveryService.java:56)
+	at org.elasticsearch.index.shard.StoreRecoveryService$1.run(StoreRecoveryService.java:129)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [test][[test][0]] EngineCreationFailureException[failed to create engine]; nested: NoSuchFileException[/usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog];
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:155)
+	at org.elasticsearch.index.engine.InternalEngineFactory.newReadWriteEngine(InternalEngineFactory.java:25)
+	at org.elasticsearch.index.shard.IndexShard.newEngine(IndexShard.java:1509)
+	at org.elasticsearch.index.shard.IndexShard.createNewEngine(IndexShard.java:1493)
+	at org.elasticsearch.index.shard.IndexShard.internalPerformTranslogRecovery(IndexShard.java:966)
+	at org.elasticsearch.index.shard.IndexShard.performTranslogRecovery(IndexShard.java:938)
+	at org.elasticsearch.index.shard.StoreRecoveryService.recoverFromStore(StoreRecoveryService.java:241)
+	... 5 more
+Caused by: java.nio.file.NoSuchFileException: /usr/share/elasticsearch/data/elasticsearch/nodes/0/indices/test/0/translog/translog-2.tlog
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.newFileChannel(UnixFileSystemProvider.java:177)
+	at java.nio.channels.FileChannel.open(FileChannel.java:287)
+	at java.nio.channels.FileChannel.open(FileChannel.java:335)
+	at org.elasticsearch.index.translog.Translog.openReader(Translog.java:374)
+	at org.elasticsearch.index.translog.Translog.recoverFromFiles(Translog.java:334)
+	at org.elasticsearch.index.translog.Translog.<init>(Translog.java:179)
+	at org.elasticsearch.index.engine.InternalEngine.openTranslog(InternalEngine.java:208)
+	at org.elasticsearch.index.engine.InternalEngine.<init>(InternalEngine.java:151)
+	... 11 more
