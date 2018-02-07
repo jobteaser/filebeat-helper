@@ -2,10 +2,363 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "github.com/Azure/go-ansiterm"
+  packages = [".","winterm"]
+  revision = "d6e3b3328b783f23731bc4d058875b0371ff8109"
+
+[[projects]]
+  name = "github.com/Microsoft/go-winio"
+  packages = ["."]
+  revision = "7da180ee92d8bd8bb8c37fc560e673e6557c392f"
+  version = "v0.4.7"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/Nvveen/Gotty"
+  packages = ["."]
+  revision = "cd527374f1e5bff4938207604a14f2e38a9cf512"
+
+[[projects]]
+  name = "github.com/Shopify/sarama"
+  packages = ["."]
+  revision = "3b1b38866a79f06deddf0487d5c27ba0697ccd65"
+  version = "v1.15.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/StackExchange/wmi"
+  packages = ["."]
+  revision = "5d049714c4a64225c3c79a7cf7d02f7fb5b96338"
+
+[[projects]]
+  name = "github.com/aerospike/aerospike-client-go"
+  packages = [".","internal/lua","internal/lua/resources","logger","pkg/bcrypt","pkg/ripemd160","types","types/atomic","types/particle_type","types/rand","utils/buffer"]
+  revision = "25d1a6234f8e72ffbb07b7f1063d20227a2fe60c"
+  version = "v1.31.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/andrewkroh/sys"
+  packages = ["windows/svc/eventlog"]
+  revision = "287798fe3e430efeb9318b95ff52353aaa2b59b1"
+
+[[projects]]
+  name = "github.com/apex/log"
+  packages = [".","handlers/json"]
+  revision = "0296d6eb16bb28f8a0c55668affcf4876dc269be"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/armon/go-socks5"
+  packages = ["."]
+  revision = "e75332964ef517daa070d7c38a9466a0d687e0a5"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/blakesmith/ar"
+  packages = ["."]
+  revision = "8bd4349a67f2533b078dbc524689d15dba0f4659"
+
+[[projects]]
+  name = "github.com/boltdb/bolt"
+  packages = ["."]
+  revision = "2f1ce7a837dcb8da3ec595b1dac9d0632f0f99e8"
+  version = "v1.3.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/cavaliercoder/go-rpm"
+  packages = ["."]
+  revision = "aa3187e14e6d0b4eb6bd77fc31190edb42697425"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/containerd/continuity"
+  packages = ["pathdriver"]
+  revision = "1a794c0014a7b786879312d1dab309ba96ead8bc"
+
+[[projects]]
+  name = "github.com/davecgh/go-spew"
+  packages = ["spew"]
+  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
+  version = "v1.1.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/docker/cli"
+  packages = ["cli/command/image/build","cli/config","cli/config/configfile","cli/config/credentials","opts"]
+  revision = "b5df4f69db84a16479f16a4bc789d9b5664a47b9"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/docker/distribution"
+  packages = [".","digestset","reference","registry/api/errcode","registry/api/v2","registry/client","registry/client/auth","registry/client/auth/challenge","registry/client/transport","registry/storage/cache","registry/storage/cache/memory"]
+  revision = "d707ea24281f377266039427cd6ba505dc52207e"
+
+[[projects]]
+  name = "github.com/docker/docker"
+  packages = ["api","api/types","api/types/blkiodev","api/types/container","api/types/events","api/types/filters","api/types/image","api/types/mount","api/types/network","api/types/registry","api/types/strslice","api/types/swarm","api/types/swarm/runtime","api/types/time","api/types/versions","api/types/volume","builder/dockerignore","builder/remotecontext/git","client","opts","pkg/archive","pkg/fileutils","pkg/homedir","pkg/idtools","pkg/ioutils","pkg/jsonmessage","pkg/longpath","pkg/mount","pkg/pools","pkg/progress","pkg/stdcopy","pkg/streamformatter","pkg/stringid","pkg/symlink","pkg/system","pkg/tarsum","pkg/term","pkg/term/windows","pkg/urlutil","registry","registry/resumable"]
+  revision = "fe8aac6f5ae413a967adb0adad0b54abdfb825c4"
+
+[[projects]]
+  name = "github.com/docker/docker-credential-helpers"
+  packages = ["client","credentials","pass"]
+  revision = "d68f9aeca33f5fd3f08eeae5e9d175edf4e731d1"
+  version = "v0.6.0"
+
+[[projects]]
+  name = "github.com/docker/go-connections"
+  packages = ["nat","sockets","tlsconfig"]
+  revision = "3ede32e2033de7505e6500d6c868c2b9ed9f169d"
+  version = "v0.3.0"
+
+[[projects]]
+  name = "github.com/docker/go-units"
+  packages = ["."]
+  revision = "0dadbb0345b35ec7ef35e228dabb8de89a65bf52"
+  version = "v0.3.2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/docker/libcompose"
+  packages = ["config","docker","docker/auth","docker/builder","docker/client","docker/container","docker/ctx","docker/image","docker/network","docker/service","docker/volume","labels","logger","lookup","project","project/events","project/options","utils","version","yaml"]
+  revision = "57bd716502dcbe1799f026148016022b0f3b989c"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/dustin/go-humanize"
+  packages = ["."]
+  revision = "bb3d318650d48840a39aa21a027c6630e198e626"
+
+[[projects]]
+  name = "github.com/eapache/go-resiliency"
+  packages = ["breaker"]
+  revision = "6800482f2c813e689c88b7ed3282262385011890"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/eapache/go-xerial-snappy"
+  packages = ["."]
+  revision = "bb955e01b9346ac19dc29eb16586c90ded99a98c"
+
+[[projects]]
+  name = "github.com/eapache/queue"
+  packages = ["."]
+  revision = "44cc805cf13205b55f69e14bcb69867d1ae92f98"
+  version = "v1.1.0"
+
+[[projects]]
+  name = "github.com/elastic/beats"
+  packages = ["auditbeat/cmd","auditbeat/core","auditbeat/datastore","auditbeat/module/auditd","auditbeat/module/file_integrity","auditbeat/module/file_integrity/monitor","auditbeat/module/file_integrity/schema","filebeat/beater","filebeat/channel","filebeat/cmd","filebeat/config","filebeat/crawler","filebeat/fileset","filebeat/harvester","filebeat/harvester/encoding","filebeat/harvester/reader","filebeat/include","filebeat/input/file","filebeat/processor/add_kubernetes_metadata","filebeat/prospector","filebeat/prospector/docker","filebeat/prospector/log","filebeat/prospector/redis","filebeat/prospector/stdin","filebeat/prospector/udp","filebeat/registrar","filebeat/util","heartbeat/beater","heartbeat/cmd","heartbeat/config","heartbeat/look","heartbeat/monitors","heartbeat/monitors/active/dialchain","heartbeat/monitors/active/http","heartbeat/monitors/active/icmp","heartbeat/monitors/active/tcp","heartbeat/monitors/defaults","heartbeat/reason","heartbeat/scheduler","heartbeat/scheduler/schedule","heartbeat/scheduler/schedule/cron","heartbeat/watcher","libbeat/api","libbeat/autodiscover","libbeat/autodiscover/meta","libbeat/autodiscover/providers/docker","libbeat/autodiscover/providers/kubernetes","libbeat/autodiscover/template","libbeat/beat","libbeat/cfgfile","libbeat/cloudid","libbeat/cmd","libbeat/cmd/export","libbeat/cmd/instance","libbeat/cmd/test","libbeat/common","libbeat/common/atomic","libbeat/common/bus","libbeat/common/cfgwarn","libbeat/common/cli","libbeat/common/docker","libbeat/common/dtfmt","libbeat/common/file","libbeat/common/fmtstr","libbeat/common/jsontransform","libbeat/common/kubernetes","libbeat/common/match","libbeat/common/schema","libbeat/common/schema/mapstriface","libbeat/common/schema/mapstrstr","libbeat/common/streambuf","libbeat/common/terminal","libbeat/dashboards","libbeat/keystore","libbeat/kibana","libbeat/logp","libbeat/logp/configure","libbeat/metric/system/cpu","libbeat/metric/system/memory","libbeat/metric/system/process","libbeat/ml-importer","libbeat/mock","libbeat/monitoring","libbeat/monitoring/adapter","libbeat/monitoring/report","libbeat/monitoring/report/elasticsearch","libbeat/monitoring/report/log","libbeat/outputs","libbeat/outputs/codec","libbeat/outputs/codec/format","libbeat/outputs/codec/json","libbeat/outputs/console","libbeat/outputs/elasticsearch","libbeat/outputs/elasticsearch/estest","libbeat/outputs/elasticsearch/internal","libbeat/outputs/fileout","libbeat/outputs/kafka","libbeat/outputs/logstash","libbeat/outputs/outest","libbeat/outputs/outil","libbeat/outputs/redis","libbeat/outputs/transport","libbeat/outputs/transport/transptest","libbeat/paths","libbeat/plugin","libbeat/processors","libbeat/processors/actions","libbeat/processors/add_cloud_metadata","libbeat/processors/add_docker_metadata","libbeat/processors/add_kubernetes_metadata","libbeat/processors/add_locale","libbeat/publisher","libbeat/publisher/includes","libbeat/publisher/pipeline","libbeat/publisher/pipeline/stress","libbeat/publisher/queue","libbeat/publisher/queue/memqueue","libbeat/publisher/queue/queuetest","libbeat/publisher/testing","libbeat/service","libbeat/setup/kibana","libbeat/template","libbeat/testing","libbeat/tests/compose","libbeat/tests/docker","libbeat/version","metricbeat/beater","metricbeat/cmd","metricbeat/cmd/test","metricbeat/helper","metricbeat/helper/server","metricbeat/helper/server/http","metricbeat/helper/server/tcp","metricbeat/helper/server/udp","metricbeat/include","metricbeat/mb","metricbeat/mb/module","metricbeat/mb/parse","metricbeat/mb/testing","metricbeat/module/aerospike","metricbeat/module/aerospike/namespace","metricbeat/module/apache","metricbeat/module/apache/status","metricbeat/module/ceph","metricbeat/module/ceph/cluster_disk","metricbeat/module/ceph/cluster_health","metricbeat/module/ceph/cluster_status","metricbeat/module/ceph/monitor_health","metricbeat/module/ceph/osd_df","metricbeat/module/ceph/osd_tree","metricbeat/module/ceph/pool_disk","metricbeat/module/couchbase","metricbeat/module/couchbase/bucket","metricbeat/module/couchbase/cluster","metricbeat/module/couchbase/node","metricbeat/module/docker","metricbeat/module/docker/container","metricbeat/module/docker/cpu","metricbeat/module/docker/diskio","metricbeat/module/docker/healthcheck","metricbeat/module/docker/image","metricbeat/module/docker/info","metricbeat/module/docker/memory","metricbeat/module/docker/network","metricbeat/module/dropwizard","metricbeat/module/dropwizard/collector","metricbeat/module/elasticsearch","metricbeat/module/elasticsearch/node","metricbeat/module/elasticsearch/node_stats","metricbeat/module/etcd","metricbeat/module/etcd/leader","metricbeat/module/etcd/self","metricbeat/module/etcd/store","metricbeat/module/golang","metricbeat/module/golang/expvar","metricbeat/module/golang/heap","metricbeat/module/graphite","metricbeat/module/graphite/server","metricbeat/module/haproxy","metricbeat/module/haproxy/info","metricbeat/module/haproxy/stat","metricbeat/module/http","metricbeat/module/http/json","metricbeat/module/http/server","metricbeat/module/jolokia","metricbeat/module/jolokia/jmx","metricbeat/module/kafka","metricbeat/module/kafka/consumergroup","metricbeat/module/kafka/partition","metricbeat/module/kibana","metricbeat/module/kibana/status","metricbeat/module/kubernetes","metricbeat/module/kubernetes/container","metricbeat/module/kubernetes/event","metricbeat/module/kubernetes/node","metricbeat/module/kubernetes/pod","metricbeat/module/kubernetes/state_container","metricbeat/module/kubernetes/state_deployment","metricbeat/module/kubernetes/state_node","metricbeat/module/kubernetes/state_pod","metricbeat/module/kubernetes/state_replicaset","metricbeat/module/kubernetes/system","metricbeat/module/kubernetes/util","metricbeat/module/kubernetes/volume","metricbeat/module/logstash","metricbeat/module/logstash/node","metricbeat/module/logstash/node_stats","metricbeat/module/memcached","metricbeat/module/memcached/stats","metricbeat/module/mongodb","metricbeat/module/mongodb/collstats","metricbeat/module/mongodb/dbstats","metricbeat/module/mongodb/status","metricbeat/module/mysql","metricbeat/module/mysql/status","metricbeat/module/nginx","metricbeat/module/nginx/stubstatus","metricbeat/module/php_fpm","metricbeat/module/php_fpm/pool","metricbeat/module/postgresql","metricbeat/module/postgresql/activity","metricbeat/module/postgresql/bgwriter","metricbeat/module/postgresql/database","metricbeat/module/prometheus","metricbeat/module/prometheus/collector","metricbeat/module/prometheus/stats","metricbeat/module/rabbitmq","metricbeat/module/rabbitmq/node","metricbeat/module/rabbitmq/queue","metricbeat/module/redis","metricbeat/module/redis/info","metricbeat/module/redis/keyspace","metricbeat/module/system","metricbeat/module/system/core","metricbeat/module/system/cpu","metricbeat/module/system/diskio","metricbeat/module/system/filesystem","metricbeat/module/system/fsstat","metricbeat/module/system/load","metricbeat/module/system/memory","metricbeat/module/system/network","metricbeat/module/system/process","metricbeat/module/system/process_summary","metricbeat/module/system/raid","metricbeat/module/system/socket","metricbeat/module/system/uptime","metricbeat/module/uwsgi","metricbeat/module/uwsgi/status","metricbeat/module/vsphere","metricbeat/module/vsphere/datastore","metricbeat/module/vsphere/host","metricbeat/module/vsphere/virtualmachine","metricbeat/module/windows","metricbeat/module/windows/perfmon","metricbeat/module/windows/service","metricbeat/module/zookeeper","metricbeat/module/zookeeper/mntr","metricbeat/processor/add_kubernetes_metadata","packetbeat/beater","packetbeat/cmd","packetbeat/config","packetbeat/decoder","packetbeat/flows","packetbeat/include","packetbeat/processor/add_kubernetes_metadata","packetbeat/procs","packetbeat/protos","packetbeat/protos/amqp","packetbeat/protos/applayer","packetbeat/protos/cassandra","packetbeat/protos/cassandra/internal/gocql","packetbeat/protos/dns","packetbeat/protos/http","packetbeat/protos/icmp","packetbeat/protos/memcache","packetbeat/protos/mongodb","packetbeat/protos/mysql","packetbeat/protos/nfs","packetbeat/protos/pgsql","packetbeat/protos/redis","packetbeat/protos/tcp","packetbeat/protos/thrift","packetbeat/protos/tls","packetbeat/protos/udp","packetbeat/publish","packetbeat/sniffer","winlogbeat/beater","winlogbeat/checkpoint","winlogbeat/cmd","winlogbeat/config","winlogbeat/eventlog","winlogbeat/sys","winlogbeat/sys/eventlogging","winlogbeat/sys/wineventlog"]
+  revision = "b4c2d3d94d747e0ce4a2d9ed124f955cc273ec39"
+  version = "v6.2.0"
+
+[[projects]]
+  name = "github.com/elastic/go-libaudit"
+  packages = [".","aucoalesce","auparse","rule","rule/flags"]
+  revision = "c139147102117edd4175a74ce071e4cc7982259a"
+  version = "v0.0.7"
+
+[[projects]]
+  name = "github.com/elastic/go-lumber"
+  packages = ["client/v2","lj","log","protocol/v2","server/internal","server/v2"]
+  revision = "616041e345fc33c97bc0eb0fa6b388aa07bca3e1"
+  version = "v0.1.0"
+
+[[projects]]
+  name = "github.com/elastic/go-ucfg"
+  packages = [".","cfgutil","flag","internal/parse","json","yaml"]
+  revision = "0ba28e36add27704e6b49a7ed8557989a8f4a635"
+  version = "v0.5.1"
+
+[[projects]]
+  name = "github.com/elastic/gosigar"
+  packages = [".","cgroup","sys/linux","sys/windows"]
+  revision = "16df19fe5efee4ea2938bde5f56c02d9929dc054"
+  version = "v0.8.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/elastic/procfs"
+  packages = ["."]
+  revision = "664e6bc79eb43c956507b6e20a867140516ad15a"
+
+[[projects]]
+  name = "github.com/ericchiang/k8s"
+  packages = [".","api/resource","api/unversioned","api/v1","apis/apps/v1alpha1","apis/apps/v1beta1","apis/authentication/v1","apis/authentication/v1beta1","apis/authorization/v1","apis/authorization/v1beta1","apis/autoscaling/v1","apis/autoscaling/v2alpha1","apis/batch/v1","apis/batch/v2alpha1","apis/certificates/v1alpha1","apis/certificates/v1beta1","apis/extensions/v1beta1","apis/imagepolicy/v1alpha1","apis/meta/v1","apis/policy/v1alpha1","apis/policy/v1beta1","apis/rbac/v1alpha1","apis/rbac/v1beta1","apis/settings/v1alpha1","apis/storage/v1","apis/storage/v1beta1","runtime","runtime/schema","util/intstr","watch/versioned"]
+  revision = "68b0248f880c5967d1ba7166486cb216af849b15"
+  version = "v0.4.0"
+
+[[projects]]
   name = "github.com/fatih/color"
   packages = ["."]
   revision = "570b54cabe6b8eb0bc2dfce68d964677d63b5260"
   version = "v1.5.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/flynn/go-shlex"
+  packages = ["."]
+  revision = "3f9db97f856818214da2e1057f8ad84803971cff"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/fsnotify/fsevents"
+  packages = ["."]
+  revision = "3ceee05210c3babaa38cdc9181dabdcc83076a44"
+
+[[projects]]
+  name = "github.com/fsnotify/fsnotify"
+  packages = ["."]
+  revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
+  version = "v1.4.7"
+
+[[projects]]
+  name = "github.com/fsouza/go-dockerclient"
+  packages = ["."]
+  revision = "2ff310040c161b75fa19fb9b287a90a6e03c0012"
+  version = "1.1"
+
+[[projects]]
+  name = "github.com/garyburd/redigo"
+  packages = ["internal","redis"]
+  revision = "d1ed5c67e5794de818ea85e6b522fda02623a484"
+  version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/ghodss/yaml"
+  packages = ["."]
+  revision = "0ca9ea5df5451ffdf184b4428c902747c2c11cd7"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/go-kit/kit"
+  packages = ["log"]
+  revision = "4dc7be5d2d12881735283bcab7352178e190fc71"
+  version = "v0.6.0"
+
+[[projects]]
+  name = "github.com/go-logfmt/logfmt"
+  packages = ["."]
+  revision = "390ab7935ee28ec6b286364bba9b4dd6410cb3d5"
+  version = "v0.3.0"
+
+[[projects]]
+  name = "github.com/go-ole/go-ole"
+  packages = [".","oleutil"]
+  revision = "a41e3c4b706f6ae8dfbff342b06e40fa4d2d0506"
+  version = "v1.2.1"
+
+[[projects]]
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
+  revision = "a0583e0143b1624142adab07e0e97fe106d99561"
+  version = "v1.3"
+
+[[projects]]
+  name = "github.com/go-stack/stack"
+  packages = ["."]
+  revision = "259ab82a6cad3992b4e21ff5cac294ccb06474bc"
+  version = "v1.7.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gocarina/gocsv"
+  packages = ["."]
+  revision = "45cbb9cde54ea46d800c4fcd1a686949ac6d87a3"
+
+[[projects]]
+  name = "github.com/gogo/protobuf"
+  packages = ["proto"]
+  revision = "1adfc126b41513cc696b209667c8656ea7aac67c"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/golang/protobuf"
+  packages = ["proto"]
+  revision = "925541529c1fa6821df4e44ce2723319eb2be768"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/golang/snappy"
+  packages = ["."]
+  revision = "553a641470496b2327abcac10b36396bd98e45c9"
+
+[[projects]]
+  name = "github.com/google/flatbuffers"
+  packages = ["go"]
+  revision = "34aea4361f829d3e4f1e4d50324e155ad4adec67"
+  version = "v1.8.0"
+
+[[projects]]
+  name = "github.com/google/uuid"
+  packages = ["."]
+  revision = "064e2069ce9c359c118179501254f67d7d37ba24"
+  version = "0.2"
+
+[[projects]]
+  name = "github.com/gorhill/cronexpr"
+  packages = ["."]
+  revision = "a557574d6c024ed6e36acc8b610f5f211c91568a"
+  version = "1.0.0"
+
+[[projects]]
+  name = "github.com/gorilla/context"
+  packages = ["."]
+  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
+  version = "v1.1"
+
+[[projects]]
+  name = "github.com/gorilla/mux"
+  packages = ["."]
+  revision = "53c1911da2b537f792e7cafcb446b05ffe33b996"
+  version = "v1.6.1"
+
+[[projects]]
+  name = "github.com/inconshreveable/mousetrap"
+  packages = ["."]
+  revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
+  version = "v1.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/joeshaw/multierror"
+  packages = ["."]
+  revision = "69b34d4ec901851247ae7e77d33909caf9df99ed"
+
+[[projects]]
+  name = "github.com/juju/ratelimit"
+  packages = ["."]
+  revision = "59fac5042749a5afb9af70e813da1dd5474f0167"
+  version = "1.0.1"
+
+[[projects]]
+  name = "github.com/klauspost/compress"
+  packages = ["flate","zlib"]
+  revision = "6c8db69c4b49dd4df1fff66996cf556176d0b9bf"
+  version = "v1.2.1"
+
+[[projects]]
+  name = "github.com/klauspost/cpuid"
+  packages = ["."]
+  revision = "ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da"
+  version = "v1.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/kr/logfmt"
+  packages = ["."]
+  revision = "b84e30acd515aadc4b783ad4ff83aff3299bdfe0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/lib/pq"
+  packages = [".","oid"]
+  revision = "88edab0803230a3898347e77b474f8c1820a1f20"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -20,14 +373,284 @@
   version = "v0.0.3"
 
 [[projects]]
+  name = "github.com/matttproud/golang_protobuf_extensions"
+  packages = ["pbutil"]
+  revision = "3247c84500bff8d9fb6d579d800f20b3e091582c"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/miekg/dns"
+  packages = ["."]
+  revision = "5364553f1ee9cddc7ac8b62dce148309c386695b"
+  version = "v1.0.4"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mitchellh/hashstructure"
+  packages = ["."]
+  revision = "2bca23e0e452137f789efbc8610126fd8b94f73b"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mitchellh/mapstructure"
+  packages = ["."]
+  revision = "a4e142e9c047c904fa2f1e144d9a84e6133024bc"
+
+[[projects]]
+  name = "github.com/opencontainers/go-digest"
+  packages = ["."]
+  revision = "279bed98673dd5bef374d3b6e4b09e2af76183bf"
+  version = "v1.0.0-rc1"
+
+[[projects]]
+  name = "github.com/opencontainers/image-spec"
+  packages = ["specs-go","specs-go/v1"]
+  revision = "d60099175f88c47cd379c4738d158884749ed235"
+  version = "v1.0.1"
+
+[[projects]]
+  name = "github.com/opencontainers/runc"
+  packages = ["libcontainer/system","libcontainer/user"]
+  revision = "baf6536d6259209c3edfa2b22237af82942d3dfa"
+  version = "v0.1.1"
+
+[[projects]]
+  name = "github.com/pierrec/lz4"
+  packages = ["."]
+  revision = "2fcda4cb7018ce05a25959d2fe08c83e3329f169"
+  version = "v1.1"
+
+[[projects]]
+  name = "github.com/pierrec/xxHash"
+  packages = ["xxHash32"]
+  revision = "f051bb7f1d1aaf1b5a665d74fb6b0217712c69f7"
+  version = "v0.1.1"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
+
+[[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/client_model"
+  packages = ["go"]
+  revision = "99fa1f4be8e564e8a6b613da7fa6f46c9edafc6c"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/prometheus/common"
+  packages = ["expfmt","internal/bitbucket.org/ww/goautoneg","model"]
+  revision = "89604d197083d4781071d3c65855d24ecfb0a563"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/rcrowley/go-metrics"
+  packages = ["."]
+  revision = "8732c616f52954686704c8645fe1a9d59e9df7c1"
+
+[[projects]]
+  name = "github.com/rs/zerolog"
+  packages = [".","internal/json"]
+  revision = "b53826c57a6a1d8833443ebeacf1cfb62b229c64"
+  version = "v1.4.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/samuel/go-thrift"
+  packages = ["parser"]
+  revision = "e9042807f4f5bf47563df6992d3ea0857313e2be"
+
+[[projects]]
+  name = "github.com/satori/go.uuid"
+  packages = ["."]
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
+
+[[projects]]
+  name = "github.com/shirou/gopsutil"
+  packages = ["disk","internal/common","net"]
+  revision = "c432be29ccce470088d07eea25b3ea7e68a8afbb"
+  version = "v2.18.01"
+
+[[projects]]
+  name = "github.com/sirupsen/logrus"
+  packages = ["."]
+  revision = "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
+  version = "v1.0.4"
+
+[[projects]]
+  name = "github.com/spf13/cobra"
+  packages = ["."]
+  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
+  version = "v0.0.1"
+
+[[projects]]
+  name = "github.com/spf13/pflag"
+  packages = ["."]
+  revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
+  version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/stretchr/objx"
+  packages = ["."]
+  revision = "facf9a85c22f48d2f52f2380e4efce1768749a89"
+  version = "v0.1"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert","mock","require"]
+  revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
+  version = "v1.2.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tsg/gopacket"
+  packages = [".","afpacket","layers","pcap"]
+  revision = "35ca14225b95ccbef1f5590cbc1fe2885ee72c3e"
+
+[[projects]]
+  name = "github.com/urso/go-structform"
+  packages = [".","gotype","internal/unsafe","json","visitors"]
+  revision = "844d7d44009e9e8c0f08016fc4dab64e136ca040"
+  version = "v0.0.2"
+
+[[projects]]
+  name = "github.com/vmware/govmomi"
+  packages = [".","find","list","nfc","object","property","session","simulator","simulator/esx","simulator/vpx","task","view","vim25","vim25/debug","vim25/methods","vim25/mo","vim25/progress","vim25/soap","vim25/types","vim25/xml"]
+  revision = "7d879bac14d09f2f2a45a0477c1e45fbf52240f5"
+  version = "v0.16.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/xeipuuv/gojsonpointer"
+  packages = ["."]
+  revision = "4e3ac2762d5f479393488629ee9370b50873b3a6"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/xeipuuv/gojsonreference"
+  packages = ["."]
+  revision = "bd5ef7bd5415a7ac448318e64f11a24cd21e594b"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/xeipuuv/gojsonschema"
+  packages = ["."]
+  revision = "70e59348c29403c606624cd201e79769d6657db8"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/yuin/gopher-lua"
+  packages = [".","ast","parse","pm"]
+  revision = "7d7bc8747e3f614c5c587729a341fe7d8903cdb8"
+
+[[projects]]
+  branch = "master"
+  name = "go.pedge.io/lion"
+  packages = ["."]
+  revision = "2a810629566a2d0f0d4107df244e8828b9f7bd5c"
+
+[[projects]]
+  name = "go.uber.org/atomic"
+  packages = ["."]
+  revision = "8474b86a5a6f79c443ce4b2992817ff32cf208b8"
+  version = "v1.3.1"
+
+[[projects]]
+  name = "go.uber.org/multierr"
+  packages = ["."]
+  revision = "3c4937480c32f4c13a875a1829af76c98ca3d40a"
+  version = "v1.1.0"
+
+[[projects]]
+  name = "go.uber.org/zap"
+  packages = [".","buffer","internal/bufferpool","internal/color","internal/exit","zapcore","zaptest","zaptest/observer"]
+  revision = "35aad584952c3e7020db7b839f6b102de6271f89"
+  version = "v1.7.1"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = ["blake2b","cast5","ed25519","ed25519/internal/edwards25519","openpgp","openpgp/armor","openpgp/elgamal","openpgp/errors","openpgp/packet","openpgp/s2k","pbkdf2","sha3","ssh/terminal"]
+  revision = "d9133f5469342136e669e85192a26056b587f503"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/net"
+  packages = ["bpf","context","context/ctxhttp","http2","http2/hpack","icmp","idna","internal/iana","internal/socket","ipv4","ipv6","lex/httplex","proxy","publicsuffix"]
+  revision = "2fb46b16b8dda405028c50f7c7f0f9dd1fa6bfb1"
+
+[[projects]]
   branch = "master"
   name = "golang.org/x/sys"
-  packages = ["unix"]
+  packages = ["unix","windows","windows/registry","windows/svc","windows/svc/debug","windows/svc/eventlog","windows/svc/mgr"]
   revision = "37707fdb30a5b38865cfb95e5aab41707daec7fd"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/text"
+  packages = ["cmd/gotext/examples/extract_http/pkg","collate","collate/build","encoding","encoding/charmap","encoding/htmlindex","encoding/ianaindex","encoding/internal","encoding/internal/identifier","encoding/japanese","encoding/korean","encoding/simplifiedchinese","encoding/traditionalchinese","encoding/unicode","feature/plural","internal","internal/catmsg","internal/cldrtree","internal/colltab","internal/format","internal/gen","internal/number","internal/stringset","internal/tag","internal/testtext","internal/triegen","internal/ucd","internal/utf8internal","language","message","message/catalog","message/pipeline","number","runes","secure/bidirule","transform","unicode/bidi","unicode/cldr","unicode/norm","unicode/rangetable","unicode/runenames"]
+  revision = "e19ae1496984b1c655b8044a65c0300a3c878dd3"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/time"
+  packages = ["rate"]
+  revision = "6dc17368e09b0e8634d71cac8168d853e869a0c7"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/tools"
+  packages = ["go/ast/astutil","go/buildutil","go/loader"]
+  revision = "66487607e2081c7c2af2281c62c14ee000d5024b"
+
+[[projects]]
+  branch = "v1"
+  name = "gopkg.in/check.v1"
+  packages = ["."]
+  revision = "20d25e2804050c1cd24a7eea1e7a6447dd0e74ec"
+
+[[projects]]
+  name = "gopkg.in/inconshreveable/log15.v2"
+  packages = ["."]
+  revision = "0decfc6c20d9ca0ad143b0e89dcaa20f810b4fb3"
+  version = "v2.13"
+
+[[projects]]
+  name = "gopkg.in/inf.v0"
+  packages = ["."]
+  revision = "3887ee99ecf07df5b447e9b00d9c0b2adaa9f3e4"
+  version = "v0.9.0"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/mgo.v2"
+  packages = [".","bson","internal/json","internal/sasl","internal/scram"]
+  revision = "3f83fa5005286a7fe593b055f0d7771a7dce4655"
+
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  revision = "d670f9405373e636a5a2765eea47fac0c9bc91a4"
+
+[[projects]]
+  branch = "master"
+  name = "howett.net/plist"
+  packages = ["."]
+  revision = "233df3c4f07b0c562da0e8a6fb850681ac49bb90"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "801a26ab69076db10a9cdea5b1fe83b567e63bc4754b1c857a5cd094a89e6fab"
+  inputs-digest = "ffd43b0ca2a62e28cbcf2ba80401f241831812793dbbb9f6e43d1868b1625514"
   solver-name = "gps-cdcl"
   solver-version = 1
