@@ -1,20 +1,27 @@
 package main
 
 import (
+	"bytes"
 	"flag"
-	"fmt"
-	"io/ioutil"
 	"log"
-	"regexp"
-	"strings"
+	"os"
 
+	"github.com/elastic/beats/filebeat/harvester/encoding"
+	"github.com/elastic/beats/filebeat/harvester/reader"
+	"github.com/elastic/beats/libbeat/common/match"
 	"github.com/fatih/color"
 )
 
 var (
-	pattern = flag.String("pattern", "", "Rexexp pattern to test")
-	logfile = flag.String("logfile", "", "Logfile example")
-	negate  = flag.Bool("negate", false, "Negate result")
+	strPattern = flag.String("pattern", "", "Rexexp pattern to test")
+	logfile    = flag.String("logfile", "", "Logfile example")
+	negateFlag = flag.Bool("negate", false, "Negate result")
+	matchFlag  = flag.String("match", "after", "after or before")
+
+	colors = []*color.Color{
+		color.New(color.FgGreen),
+		color.New(color.FgCyan),
+	}
 )
 
 func main() {
@@ -24,32 +31,47 @@ func main() {
 		log.Fatal("Logfile cannot be empty")
 	}
 
-	if *pattern == "" {
+	if *strPattern == "" {
 		log.Fatal("Pattern cannot be empty")
 	}
 
-	content, err := ioutil.ReadFile(*logfile)
+	pattern := match.MustCompile(*strPattern)
+
+	cfg := reader.MultilineConfig{
+		Pattern: &pattern,
+		Negate:  *negateFlag,
+		Match:   *matchFlag,
+	}
+
+	f, err := os.Open(*logfile)
 	if err != nil {
 		log.Fatal("Cannot read logfile", err)
 	}
 
-	regex, err := regexp.Compile(*pattern)
+	codecFactory, _ := encoding.FindEncoding("utf-8")
+
+	buffer := bytes.NewBuffer(nil)
+	codec, _ := codecFactory(buffer)
+
+	var r reader.Reader
+	r, err = reader.NewEncode(f, codec, 4096)
 	if err != nil {
-		log.Fatal("Failed to compile pattern: ", err)
-		return
+		log.Fatalln("Failed to initialize line reader: %v", err)
 	}
 
-	lines := strings.Split(string(content), "\n")
-	fmt.Printf("matches\tline\n")
-	for _, line := range lines {
-		matches := regex.MatchString(line)
-		if *negate {
-			matches = !matches
-		}
-		if matches {
-			color.Green(line)
-		} else {
-			color.Red(line)
-		}
+	r, err = reader.NewMultiline(reader.NewStripNewline(r), "\n", 1<<20, &cfg)
+	if err != nil {
+		log.Fatalln("failed to initializ reader: %v", err)
 	}
+
+	i := 0
+	for {
+		message, err := r.Next()
+		if err != nil {
+			break
+		}
+		i++
+		colors[i%len(colors)].Println(string(message.Content))
+	}
+
 }
