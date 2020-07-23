@@ -319,7 +319,7 @@ func checkout(repo, hash, path string) error {
 var timeoutClient = &http.Client{Timeout: 10 * time.Second}
 
 // gerritMetaMap returns the map from repo name (e.g. "go") to its
-// latest master hash.
+// latest main hash.
 // The returned map is nil on any transient error.
 func gerritMetaMap() map[string]string {
 	res, err := timeoutClient.Get(metaURL)
@@ -354,8 +354,8 @@ func gerritMetaMap() map[string]string {
 	}
 	m := map[string]string{}
 	for repo, v := range meta {
-		if master, ok := v.Branches["master"]; ok {
-			m[repo] = master
+		if main, ok := v.Branches["main"]; ok {
+			m[repo] = main
 		}
 	}
 	return m

@@ -33,12 +33,12 @@ func TestConsumerOffsetManual(t *testing.T) {
 	})
 
 	// When
-	master, err := NewConsumer([]string{broker0.Addr()}, nil)
+	main, err := NewConsumer([]string{broker0.Addr()}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	consumer, err := master.ConsumePartition("my_topic", 0, 1234)
+	consumer, err := main.ConsumePartition("my_topic", 0, 1234)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,7 +54,7 @@ func TestConsumerOffsetManual(t *testing.T) {
 	}
 
 	safeClose(t, consumer)
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 
@@ -78,13 +78,13 @@ func TestConsumerOffsetNewest(t *testing.T) {
 			SetHighWaterMark("my_topic", 0, 14),
 	})
 
-	master, err := NewConsumer([]string{broker0.Addr()}, nil)
+	main, err := NewConsumer([]string{broker0.Addr()}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	// When
-	consumer, err := master.ConsumePartition("my_topic", 0, OffsetNewest)
+	consumer, err := main.ConsumePartition("my_topic", 0, OffsetNewest)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -96,7 +96,7 @@ func TestConsumerOffsetNewest(t *testing.T) {
 	}
 
 	safeClose(t, consumer)
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 
@@ -354,13 +354,13 @@ func TestConsumerShutsDownOutOfRange(t *testing.T) {
 		"FetchRequest": NewMockWrapper(fetchResponse),
 	})
 
-	master, err := NewConsumer([]string{broker0.Addr()}, nil)
+	main, err := NewConsumer([]string{broker0.Addr()}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	// When
-	consumer, err := master.ConsumePartition("my_topic", 0, 101)
+	consumer, err := main.ConsumePartition("my_topic", 0, 101)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -371,7 +371,7 @@ func TestConsumerShutsDownOutOfRange(t *testing.T) {
 	}
 	safeClose(t, consumer)
 
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 
@@ -413,13 +413,13 @@ func TestConsumerExtraOffsets(t *testing.T) {
 			"FetchRequest": NewMockSequence(fetchResponse1, fetchResponse2),
 		})
 
-		master, err := NewConsumer([]string{broker0.Addr()}, cfg)
+		main, err := NewConsumer([]string{broker0.Addr()}, cfg)
 		if err != nil {
 			t.Fatal(err)
 		}
 
 		// When
-		consumer, err := master.ConsumePartition("my_topic", 0, 3)
+		consumer, err := main.ConsumePartition("my_topic", 0, 3)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -430,7 +430,7 @@ func TestConsumerExtraOffsets(t *testing.T) {
 		assertMessageOffset(t, <-consumer.Messages(), 4)
 
 		safeClose(t, consumer)
-		safeClose(t, master)
+		safeClose(t, main)
 		broker0.Close()
 	}
 }
@@ -459,13 +459,13 @@ func TestConsumeMessageWithNewerFetchAPIVersion(t *testing.T) {
 		"FetchRequest": NewMockSequence(fetchResponse1, fetchResponse2),
 	})
 
-	master, err := NewConsumer([]string{broker0.Addr()}, cfg)
+	main, err := NewConsumer([]string{broker0.Addr()}, cfg)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	// When
-	consumer, err := master.ConsumePartition("my_topic", 0, 1)
+	consumer, err := main.ConsumePartition("my_topic", 0, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -474,7 +474,7 @@ func TestConsumeMessageWithNewerFetchAPIVersion(t *testing.T) {
 	assertMessageOffset(t, <-consumer.Messages(), 2)
 
 	safeClose(t, consumer)
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 
@@ -513,13 +513,13 @@ func TestConsumerNonSequentialOffsets(t *testing.T) {
 			"FetchRequest": NewMockSequence(fetchResponse1, fetchResponse2),
 		})
 
-		master, err := NewConsumer([]string{broker0.Addr()}, cfg)
+		main, err := NewConsumer([]string{broker0.Addr()}, cfg)
 		if err != nil {
 			t.Fatal(err)
 		}
 
 		// When
-		consumer, err := master.ConsumePartition("my_topic", 0, 3)
+		consumer, err := main.ConsumePartition("my_topic", 0, 3)
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -531,7 +531,7 @@ func TestConsumerNonSequentialOffsets(t *testing.T) {
 		assertMessageOffset(t, <-consumer.Messages(), 11)
 
 		safeClose(t, consumer)
-		safeClose(t, master)
+		safeClose(t, main)
 		broker0.Close()
 	}
 }
@@ -569,7 +569,7 @@ func TestConsumerRebalancingMultiplePartitions(t *testing.T) {
 	// launch test goroutines
 	config := NewConfig()
 	config.Consumer.Retry.Backoff = 50
-	master, err := NewConsumer([]string{seedBroker.Addr()}, config)
+	main, err := NewConsumer([]string{seedBroker.Addr()}, config)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -577,7 +577,7 @@ func TestConsumerRebalancingMultiplePartitions(t *testing.T) {
 	// we expect to end up (eventually) consuming exactly ten messages on each partition
 	var wg sync.WaitGroup
 	for i := int32(0); i < 2; i++ {
-		consumer, err := master.ConsumePartition("my_topic", i, 0)
+		consumer, err := main.ConsumePartition("my_topic", i, 0)
 		if err != nil {
 			t.Error(err)
 		}
@@ -691,7 +691,7 @@ func TestConsumerRebalancingMultiplePartitions(t *testing.T) {
 	})
 
 	wg.Wait()
-	safeClose(t, master)
+	safeClose(t, main)
 	leader1.Close()
 	leader0.Close()
 	seedBroker.Close()
@@ -722,17 +722,17 @@ func TestConsumerInterleavedClose(t *testing.T) {
 
 	config := NewConfig()
 	config.ChannelBufferSize = 0
-	master, err := NewConsumer([]string{broker0.Addr()}, config)
+	main, err := NewConsumer([]string{broker0.Addr()}, config)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	c0, err := master.ConsumePartition("my_topic", 0, 1000)
+	c0, err := main.ConsumePartition("my_topic", 0, 1000)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	c1, err := master.ConsumePartition("my_topic", 1, 2000)
+	c1, err := main.ConsumePartition("my_topic", 1, 2000)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -744,7 +744,7 @@ func TestConsumerInterleavedClose(t *testing.T) {
 
 	safeClose(t, c1)
 	safeClose(t, c0)
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 
@@ -785,17 +785,17 @@ func TestConsumerBounceWithReferenceOpen(t *testing.T) {
 	config.Consumer.Return.Errors = true
 	config.Consumer.Retry.Backoff = 100 * time.Millisecond
 	config.ChannelBufferSize = 1
-	master, err := NewConsumer([]string{broker1.Addr()}, config)
+	main, err := NewConsumer([]string{broker1.Addr()}, config)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	c0, err := master.ConsumePartition("my_topic", 0, 1000)
+	c0, err := main.ConsumePartition("my_topic", 0, 1000)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	c1, err := master.ConsumePartition("my_topic", 1, 2000)
+	c1, err := main.ConsumePartition("my_topic", 1, 2000)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -841,7 +841,7 @@ func TestConsumerBounceWithReferenceOpen(t *testing.T) {
 
 	safeClose(t, c1)
 	safeClose(t, c0)
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 	broker1.Close()
 }
@@ -858,23 +858,23 @@ func TestConsumerOffsetOutOfRange(t *testing.T) {
 			SetOffset("my_topic", 0, OffsetOldest, 2345),
 	})
 
-	master, err := NewConsumer([]string{broker0.Addr()}, nil)
+	main, err := NewConsumer([]string{broker0.Addr()}, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	// When/Then
-	if _, err := master.ConsumePartition("my_topic", 0, 0); err != ErrOffsetOutOfRange {
+	if _, err := main.ConsumePartition("my_topic", 0, 0); err != ErrOffsetOutOfRange {
 		t.Fatal("Should return ErrOffsetOutOfRange, got:", err)
 	}
-	if _, err := master.ConsumePartition("my_topic", 0, 3456); err != ErrOffsetOutOfRange {
+	if _, err := main.ConsumePartition("my_topic", 0, 3456); err != ErrOffsetOutOfRange {
 		t.Fatal("Should return ErrOffsetOutOfRange, got:", err)
 	}
-	if _, err := master.ConsumePartition("my_topic", 0, -3); err != ErrOffsetOutOfRange {
+	if _, err := main.ConsumePartition("my_topic", 0, -3); err != ErrOffsetOutOfRange {
 		t.Fatal("Should return ErrOffsetOutOfRange, got:", err)
 	}
 
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 
@@ -898,13 +898,13 @@ func TestConsumerExpiryTicker(t *testing.T) {
 	config := NewConfig()
 	config.ChannelBufferSize = 0
 	config.Consumer.MaxProcessingTime = 10 * time.Millisecond
-	master, err := NewConsumer([]string{broker0.Addr()}, config)
+	main, err := NewConsumer([]string{broker0.Addr()}, config)
 	if err != nil {
 		t.Fatal(err)
 	}
 
 	// When
-	consumer, err := master.ConsumePartition("my_topic", 0, 1)
+	consumer, err := main.ConsumePartition("my_topic", 0, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -916,7 +916,7 @@ func TestConsumerExpiryTicker(t *testing.T) {
 	}
 
 	safeClose(t, consumer)
-	safeClose(t, master)
+	safeClose(t, main)
 	broker0.Close()
 }
 

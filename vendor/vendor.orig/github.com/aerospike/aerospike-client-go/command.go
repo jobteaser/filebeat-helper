@@ -62,7 +62,7 @@ const (
 
 	// This is the last of a multi-part message.
 	_INFO3_LAST int = (1 << 0)
-	// Commit to master only before declaring success.
+	// Commit to main only before declaring success.
 	_INFO3_COMMIT_MASTER int = (1 << 1)
 	// Update only. Merge bins.
 	_INFO3_UPDATE_ONLY int = (1 << 3)

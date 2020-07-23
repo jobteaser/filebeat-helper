@@ -151,11 +151,11 @@ func testProducingMessages(t *testing.T, config *Config) {
 	// Validate producer metrics before using the consumer minus the offset request
 	validateMetrics(t, client)
 
-	master, err := NewConsumerFromClient(client)
+	main, err := NewConsumerFromClient(client)
 	if err != nil {
 		t.Fatal(err)
 	}
-	consumer, err := master.ConsumePartition("test.1", 0, initialOffset)
+	consumer, err := main.ConsumePartition("test.1", 0, initialOffset)
 	if err != nil {
 		t.Fatal(err)
 	}

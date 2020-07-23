@@ -256,7 +256,7 @@ func TestMsgLength2(t *testing.T) {
 }
 
 func TestMsgLengthCompressionMalformed(t *testing.T) {
-	// SOA with empty hostmaster, which is illegal
+	// SOA with empty hostmain, which is illegal
 	soa := &SOA{Hdr: RR_Header{Name: ".", Rrtype: TypeSOA, Class: ClassINET, Ttl: 12345},
 		Ns:      ".",
 		Mbox:    "",

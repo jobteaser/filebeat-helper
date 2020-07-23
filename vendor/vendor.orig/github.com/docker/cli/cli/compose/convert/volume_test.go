@@ -27,7 +27,7 @@ func TestConvertVolumeToMountAnonymousBind(t *testing.T) {
 		Type:   "bind",
 		Target: "/foo/bar",
 		Bind: &composetypes.ServiceVolumeBind{
-			Propagation: "slave",
+			Propagation: "subordinate",
 		},
 	}
 	_, err := convertVolumeToMount(config, volumes{}, NewNamespace("foo"))
@@ -51,7 +51,7 @@ func TestConvertVolumeToMountConflictingOptionsBindInVolume(t *testing.T) {
 		Source: "foo",
 		Target: "/target",
 		Bind: &composetypes.ServiceVolumeBind{
-			Propagation: "slave",
+			Propagation: "subordinate",
 		},
 	}
 	_, err := convertVolumeToMount(config, volumes{}, namespace)
@@ -110,7 +110,7 @@ func TestConvertVolumeToMountConflictingOptionsBindInTmpfs(t *testing.T) {
 		Type:   "tmpfs",
 		Target: "/target",
 		Bind: &composetypes.ServiceVolumeBind{
-			Propagation: "slave",
+			Propagation: "subordinate",
 		},
 	}
 	_, err := convertVolumeToMount(config, volumes{}, namespace)

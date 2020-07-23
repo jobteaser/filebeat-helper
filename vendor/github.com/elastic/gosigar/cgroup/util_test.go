@@ -174,7 +174,7 @@ func TestParseMountinfoLine(t *testing.T) {
 	lines := []string{
 		"30 24 0:25 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,blkio",
 		"30 24 0:25 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:13 - cgroup cgroup rw,blkio",
-		"30 24 0:25 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:13 master:1 - cgroup cgroup rw,blkio",
+		"30 24 0:25 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:13 main:1 - cgroup cgroup rw,blkio",
 		"30 24 0:25 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:13 - cgroup cgroup rw,name=blkio",
 	}
 

@@ -20,7 +20,7 @@ func TestParseRemoteURL(t *testing.T) {
 	dir, err := parseRemoteURL("git://github.com/user/repo.git")
 	require.NoError(t, err)
 	assert.NotEmpty(t, dir)
-	assert.Equal(t, gitRepo{"git://github.com/user/repo.git", "master", ""}, dir)
+	assert.Equal(t, gitRepo{"git://github.com/user/repo.git", "main", ""}, dir)
 
 	dir, err = parseRemoteURL("git://github.com/user/repo.git#mybranch:mydir/mysubdir/")
 	require.NoError(t, err)
@@ -30,7 +30,7 @@ func TestParseRemoteURL(t *testing.T) {
 	dir, err = parseRemoteURL("https://github.com/user/repo.git")
 	require.NoError(t, err)
 	assert.NotEmpty(t, dir)
-	assert.Equal(t, gitRepo{"https://github.com/user/repo.git", "master", ""}, dir)
+	assert.Equal(t, gitRepo{"https://github.com/user/repo.git", "main", ""}, dir)
 
 	dir, err = parseRemoteURL("https://github.com/user/repo.git#mybranch:mydir/mysubdir/")
 	require.NoError(t, err)
@@ -40,7 +40,7 @@ func TestParseRemoteURL(t *testing.T) {
 	dir, err = parseRemoteURL("git@github.com:user/repo.git")
 	require.NoError(t, err)
 	assert.NotEmpty(t, dir)
-	assert.Equal(t, gitRepo{"git@github.com:user/repo.git", "master", ""}, dir)
+	assert.Equal(t, gitRepo{"git@github.com:user/repo.git", "main", ""}, dir)
 
 	dir, err = parseRemoteURL("git@github.com:user/repo.git#mybranch:mydir/mysubdir/")
 	require.NoError(t, err)
@@ -60,8 +60,8 @@ func TestCloneArgsSmartHttp(t *testing.T) {
 		w.Header().Set("Content-Type", fmt.Sprintf("application/x-%s-advertisement", q))
 	})
 
-	args := fetchArgs(serverURL.String(), "master")
-	exp := []string{"fetch", "--recurse-submodules=yes", "--depth", "1", "origin", "master"}
+	args := fetchArgs(serverURL.String(), "main")
+	exp := []string{"fetch", "--recurse-submodules=yes", "--depth", "1", "origin", "main"}
 	assert.Equal(t, exp, args)
 }
 
@@ -76,14 +76,14 @@ func TestCloneArgsDumbHttp(t *testing.T) {
 		w.Header().Set("Content-Type", "text/plain")
 	})
 
-	args := fetchArgs(serverURL.String(), "master")
-	exp := []string{"fetch", "--recurse-submodules=yes", "origin", "master"}
+	args := fetchArgs(serverURL.String(), "main")
+	exp := []string{"fetch", "--recurse-submodules=yes", "origin", "main"}
 	assert.Equal(t, exp, args)
 }
 
 func TestCloneArgsGit(t *testing.T) {
-	args := fetchArgs("git://github.com/docker/docker", "master")
-	exp := []string{"fetch", "--recurse-submodules=yes", "--depth", "1", "origin", "master"}
+	args := fetchArgs("git://github.com/docker/docker", "main")
+	exp := []string{"fetch", "--recurse-submodules=yes", "--depth", "1", "origin", "main"}
 	assert.Equal(t, exp, args)
 }
 
@@ -162,7 +162,7 @@ func TestCheckoutGit(t *testing.T) {
 	_, err = gitWithinDir(gitDir, "commit", "-am", "Branch commit")
 	require.NoError(t, err)
 
-	_, err = gitWithinDir(gitDir, "checkout", "master")
+	_, err = gitWithinDir(gitDir, "checkout", "main")
 	require.NoError(t, err)
 
 	type singleCase struct {
@@ -173,13 +173,13 @@ func TestCheckoutGit(t *testing.T) {
 
 	cases := []singleCase{
 		{"", "FROM scratch", false},
-		{"master", "FROM scratch", false},
+		{"main", "FROM scratch", false},
 		{":subdir", "FROM scratch" + eol + "EXPOSE 5000", false},
 		{":nosubdir", "", true},   // missing directory error
 		{":Dockerfile", "", true}, // not a directory error
-		{"master:nosubdir", "", true},
-		{"master:subdir", "FROM scratch" + eol + "EXPOSE 5000", false},
-		{"master:../subdir", "", true},
+		{"main:nosubdir", "", true},
+		{"main:subdir", "FROM scratch" + eol + "EXPOSE 5000", false},
+		{"main:../subdir", "", true},
 		{"test", "FROM scratch" + eol + "EXPOSE 3000", false},
 		{"test:", "FROM scratch" + eol + "EXPOSE 3000", false},
 		{"test:subdir", "FROM busybox" + eol + "EXPOSE 5000", false},
@@ -191,8 +191,8 @@ func TestCheckoutGit(t *testing.T) {
 		//	error: readlink("absolutelink"): Function not implemented
 		// 	error: unable to index file absolutelink
 		// 	fatal: adding files failed
-		cases = append(cases, singleCase{frag: "master:absolutelink", exp: "FROM scratch" + eol + "EXPOSE 5000", fail: false})
-		cases = append(cases, singleCase{frag: "master:parentlink", exp: "FROM scratch" + eol + "EXPOSE 5000", fail: false})
+		cases = append(cases, singleCase{frag: "main:absolutelink", exp: "FROM scratch" + eol + "EXPOSE 5000", fail: false})
+		cases = append(cases, singleCase{frag: "main:parentlink", exp: "FROM scratch" + eol + "EXPOSE 5000", fail: false})
 	}
 
 	for _, c := range cases {

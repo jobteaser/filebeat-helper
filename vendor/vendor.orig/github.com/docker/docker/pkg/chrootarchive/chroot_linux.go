@@ -26,13 +26,13 @@ func chroot(path string) (err error) {
 		return fmt.Errorf("Error creating mount namespace before pivot: %v", err)
 	}
 
-	// Make everything in new ns slave.
+	// Make everything in new ns subordinate.
 	// Don't use `private` here as this could race where the mountns gets a
 	//   reference to a mount and an unmount from the host does not propagate,
 	//   which could potentially cause transient errors for other operations,
-	//   even though this should be relatively small window here `slave` should
+	//   even though this should be relatively small window here `subordinate` should
 	//   not cause any problems.
-	if err := mount.MakeRSlave("/"); err != nil {
+	if err := mount.MakeRSubordinate("/"); err != nil {
 		return err
 	}
 

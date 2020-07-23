@@ -81,12 +81,12 @@ func TestParseVolumeRelativeBindMountWindows(t *testing.T) {
 }
 
 func TestParseVolumeWithBindOptions(t *testing.T) {
-	volume, err := ParseVolume("/source:/target:slave")
+	volume, err := ParseVolume("/source:/target:subordinate")
 	expected := types.ServiceVolumeConfig{
 		Type:   "bind",
 		Source: "/source",
 		Target: "/target",
-		Bind:   &types.ServiceVolumeBind{Propagation: "slave"},
+		Bind:   &types.ServiceVolumeBind{Propagation: "subordinate"},
 	}
 	assert.NoError(t, err)
 	assert.Equal(t, expected, volume)

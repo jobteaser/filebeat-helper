@@ -36,9 +36,9 @@ const (
 	syscallMsg = `audit(1490137971.011:50406): arch=c000003e syscall=42 ` +
 		`success=yes exit=0 a0=15 a1=7ffd83722200 a2=6e a3=ea60 items=1 ppid=1 ` +
 		`pid=1229 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 ` +
-		`fsgid=0 tty=(none) ses=4294967295 comm="master" ` +
-		`exe="/usr/libexec/postfix/master" ` +
-		`subj=system_u:system_r:postfix_master_t:s0 key=(null)`
+		`fsgid=0 tty=(none) ses=4294967295 comm="main" ` +
+		`exe="/usr/libexec/postfix/main" ` +
+		`subj=system_u:system_r:postfix_main_t:s0 key=(null)`
 
 	syscallLogLine = `type=SYSCALL msg=` + syscallMsg
 )
@@ -325,10 +325,10 @@ func ExampleParseLogLine() {
 	//   "a3": "ea60",
 	//   "arch": "x86_64",
 	//   "auid": "unset",
-	//   "comm": "master",
+	//   "comm": "main",
 	//   "egid": "0",
 	//   "euid": "0",
-	//   "exe": "/usr/libexec/postfix/master",
+	//   "exe": "/usr/libexec/postfix/main",
 	//   "exit": "0",
 	//   "fsgid": "0",
 	//   "fsuid": "0",
@@ -336,13 +336,13 @@ func ExampleParseLogLine() {
 	//   "items": "1",
 	//   "pid": "1229",
 	//   "ppid": "1",
-	//   "raw_msg": "audit(1490137971.011:50406): arch=c000003e syscall=42 success=yes exit=0 a0=15 a1=7ffd83722200 a2=6e a3=ea60 items=1 ppid=1 pid=1229 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm=\"master\" exe=\"/usr/libexec/postfix/master\" subj=system_u:system_r:postfix_master_t:s0 key=(null)",
+	//   "raw_msg": "audit(1490137971.011:50406): arch=c000003e syscall=42 success=yes exit=0 a0=15 a1=7ffd83722200 a2=6e a3=ea60 items=1 ppid=1 pid=1229 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm=\"main\" exe=\"/usr/libexec/postfix/main\" subj=system_u:system_r:postfix_main_t:s0 key=(null)",
 	//   "record_type": "SYSCALL",
 	//   "result": "success",
 	//   "sequence": "50406",
 	//   "ses": "unset",
 	//   "sgid": "0",
-	//   "subj_domain": "postfix_master_t",
+	//   "subj_domain": "postfix_main_t",
 	//   "subj_level": "s0",
 	//   "subj_role": "system_r",
 	//   "subj_user": "system_u",

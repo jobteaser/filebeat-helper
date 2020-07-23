@@ -38,7 +38,7 @@ type WritePolicy struct {
 	GenerationPolicy GenerationPolicy //= GenerationPolicy.NONE;
 
 	// Desired consistency guarantee when committing a transaction on the server. The default
-	// (COMMIT_ALL) indicates that the server should wait for master and all replica commits to
+	// (COMMIT_ALL) indicates that the server should wait for main and all replica commits to
 	// be successful before returning success to the client.
 	CommitLevel CommitLevel //= COMMIT_ALL
 

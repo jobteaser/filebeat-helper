@@ -20,7 +20,7 @@ var user = flag.String("U", "", "Username.")
 var password = flag.String("P", "", "Password.")
 var clientPolicy *as.ClientPolicy
 var client *as.Client
-var useReplicas = flag.Bool("use-replicas", false, "Aerospike will use replicas as well as master partitions.")
+var useReplicas = flag.Bool("use-replicas", false, "Aerospike will use replicas as well as main partitions.")
 
 func initTestVars() {
 	rand.Seed(time.Now().UnixNano())

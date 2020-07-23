@@ -74,8 +74,8 @@ var (
 		},
 		"replication": s.Object{
 			"role":             c.Str("role"),
-			"connected_slaves": c.Int("connected_slaves"),
-			"master_offset":    c.Int("master_repl_offset"),
+			"connected_subordinates": c.Int("connected_subordinates"),
+			"main_offset":    c.Int("main_repl_offset"),
 			"backlog": s.Object{
 				"active":            c.Int("repl_backlog_active"),
 				"size":              c.Int("repl_backlog_size"),

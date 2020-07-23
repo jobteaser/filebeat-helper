@@ -19,7 +19,7 @@ var kernel32 = syscall.NewLazyDLL("kernel32.dll")
 
 var (
 	procGetFileInformationByHandleEx = kernel32.NewProc("GetFileInformationByHandleEx")
-	msysPipeNameRegex                = regexp.MustCompile(`\\(cygwin|msys)-\w+-pty\d?-(to|from)-master`)
+	msysPipeNameRegex                = regexp.MustCompile(`\\(cygwin|msys)-\w+-pty\d?-(to|from)-main`)
 )
 
 const (
@@ -70,7 +70,7 @@ func IsMSYSTerminal(w io.Writer) bool {
 		return false
 	}
 
-	// MSYS2/Cygwin terminal's name looks like: \msys-dd50a72ab4668b33-pty2-to-master
+	// MSYS2/Cygwin terminal's name looks like: \msys-dd50a72ab4668b33-pty2-to-main
 	data := make([]byte, 256, 256)
 
 	r, _, e := syscall.Syscall6(

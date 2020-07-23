@@ -77,8 +77,8 @@ func (ndv *nodeValidator) seedNodes(cluster *Cluster, host *Host, nodesToAdd *no
 
 func (ndv *nodeValidator) validateNode(cluster *Cluster, host *Host) error {
 	if clusterNodes := cluster.GetNodes(); cluster.clientPolicy.IgnoreOtherSubnetAliases && len(clusterNodes) > 0 {
-		masterHostname := clusterNodes[0].host.Name
-		ip, ipnet, err := net.ParseCIDR(masterHostname + "/24")
+		mainHostname := clusterNodes[0].host.Name
+		ip, ipnet, err := net.ParseCIDR(mainHostname + "/24")
 		if err != nil {
 			Logger.Error(err.Error())
 			return NewAerospikeError(NO_AVAILABLE_CONNECTIONS_TO_NODE, "Failed parsing hostname...")

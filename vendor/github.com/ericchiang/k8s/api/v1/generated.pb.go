@@ -3735,7 +3735,7 @@ func (m *NodeDaemonEndpoints) GetKubeletEndpoint() *DaemonEndpoint {
 	return nil
 }
 
-// NodeList is the whole list of all Nodes which have been registered with master.
+// NodeList is the whole list of all Nodes which have been registered with main.
 type NodeList struct {
 	// Standard list metadata.
 	// More info: http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds
@@ -8220,7 +8220,7 @@ type ServiceSpec struct {
 	// +optional
 	Selector map[string]string `protobuf:"bytes,2,rep,name=selector" json:"selector,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// clusterIP is the IP address of the service and is usually assigned
-	// randomly by the master. If an address is specified manually and is not in
+	// randomly by the main. If an address is specified manually and is not in
 	// use by others, it will be allocated to the service; otherwise, creation
 	// of the service will fail. This field can not be changed through updates.
 	// Valid values are "None", empty string (""), or a valid IP address. "None"
