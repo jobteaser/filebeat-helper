@@ -118,7 +118,7 @@ func run() error {
 	var buf bytes.Buffer
 	header := fmt.Sprintf("// This file has been generated from '%v', do not edit\n", args[0])
 	buf.WriteString(header)
-	T = T.New("master")
+	T = T.New("main")
 	T, err = T.Parse(gen.Main)
 	if err != nil {
 		return fmt.Errorf("Parsing 'template' fields failed with %v", err)

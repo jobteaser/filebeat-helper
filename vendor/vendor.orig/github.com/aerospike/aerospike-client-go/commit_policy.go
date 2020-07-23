@@ -21,9 +21,9 @@ package aerospike
 type CommitLevel int
 
 const (
-	// COMMIT_ALL indicates the server should wait until successfully committing master and all replicas.
+	// COMMIT_ALL indicates the server should wait until successfully committing main and all replicas.
 	COMMIT_ALL CommitLevel = iota
 
-	// COMMIT_MASTER indicates the server should wait until successfully committing master only.
+	// COMMIT_MASTER indicates the server should wait until successfully committing main only.
 	COMMIT_MASTER
 )

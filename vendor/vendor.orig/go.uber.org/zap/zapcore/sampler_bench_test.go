@@ -158,7 +158,7 @@ var counterTestCases = [][]string{
 		"etching",
 		"soundingly",
 		"grumpish",
-		"drillmaster",
+		"drillmain",
 		"perfumed",
 		"dealkylate",
 		"anthracitiferous",

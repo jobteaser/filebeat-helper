@@ -400,7 +400,7 @@ func (clstr *Cluster) tend() error {
 
 	// Disable prole requests if some nodes don't support it.
 	if clstr.clientPolicy.RequestProleReplicas && !replicasAllSupport {
-		Logger.Warn("Some nodes don't support 'replicas-all'. Will use 'replicas-master' for all nodes.")
+		Logger.Warn("Some nodes don't support 'replicas-all'. Will use 'replicas-main' for all nodes.")
 	}
 
 	// set the cluster supported features
@@ -815,9 +815,9 @@ func (clstr *Cluster) getReadNode(partition *Partition, replica ReplicaPolicy, s
 	case SEQUENCE:
 		return clstr.getSequenceNode(partition, seq)
 	case MASTER:
-		return clstr.getMasterNode(partition)
+		return clstr.getMainNode(partition)
 	case MASTER_PROLES:
-		return clstr.getMasterProleNode(partition)
+		return clstr.getMainProleNode(partition)
 	default:
 		// includes case RANDOM:
 		return clstr.GetRandomNode()
@@ -841,7 +841,7 @@ func (clstr *Cluster) getSequenceNode(partition *Partition, seq *int) (*Node, er
 	return clstr.GetRandomNode()
 }
 
-func (clstr *Cluster) getMasterNode(partition *Partition) (*Node, error) {
+func (clstr *Cluster) getMainNode(partition *Partition) (*Node, error) {
 	pmap := clstr.getPartitions()
 	replicaArray := pmap[partition.Namespace]
 
@@ -855,7 +855,7 @@ func (clstr *Cluster) getMasterNode(partition *Partition) (*Node, error) {
 	return clstr.GetRandomNode()
 }
 
-func (clstr *Cluster) getMasterProleNode(partition *Partition) (*Node, error) {
+func (clstr *Cluster) getMainProleNode(partition *Partition) (*Node, error) {
 	pmap := clstr.getPartitions()
 	replicaArray := pmap[partition.Namespace]
 

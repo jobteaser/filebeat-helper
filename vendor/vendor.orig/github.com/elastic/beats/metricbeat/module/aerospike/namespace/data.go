@@ -60,7 +60,7 @@ var schema = s.Schema{
 		},
 	},
 	"objects": s.Object{
-		"master": c.Int("master_objects"),
+		"main": c.Int("main_objects"),
 		"total":  c.Int("objects"),
 	},
 	"stop_writes": c.Bool("stop_writes"),

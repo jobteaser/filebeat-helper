@@ -236,7 +236,7 @@ func TestInspectContainer(t *testing.T) {
                   "Labels": {
                       "executiondriver": "native-0.2",
                       "kernelversion": "3.18.5-tinycore64",
-                      "operatingsystem": "Boot2Docker 1.5.0 (TCL 5.4); master : a66bce5 - Tue Feb 10 23:31:27 UTC 2015",
+                      "operatingsystem": "Boot2Docker 1.5.0 (TCL 5.4); main : a66bce5 - Tue Feb 10 23:31:27 UTC 2015",
                       "provider": "virtualbox",
                       "storagedriver": "aufs"
                   }
@@ -346,7 +346,7 @@ func TestInspectContainerWithContext(t *testing.T) {
                   "Labels": {
                       "executiondriver": "native-0.2",
                       "kernelversion": "3.18.5-tinycore64",
-                      "operatingsystem": "Boot2Docker 1.5.0 (TCL 5.4); master : a66bce5 - Tue Feb 10 23:31:27 UTC 2015",
+                      "operatingsystem": "Boot2Docker 1.5.0 (TCL 5.4); main : a66bce5 - Tue Feb 10 23:31:27 UTC 2015",
                       "provider": "virtualbox",
                       "storagedriver": "aufs"
                   }
@@ -479,7 +479,7 @@ func TestInspectContainerNetwork(t *testing.T) {
                 "Labels": {
                     "executiondriver": "native-0.2",
                     "kernelversion": "4.1.12-boot2docker",
-                    "operatingsystem": "Boot2Docker 1.9.0 (TCL 6.4); master : 16e4a2a - Tue Nov  3 19:49:22 UTC 2015",
+                    "operatingsystem": "Boot2Docker 1.9.0 (TCL 6.4); main : 16e4a2a - Tue Nov  3 19:49:22 UTC 2015",
                     "provider": "virtualbox",
                     "storagedriver": "aufs"
                 }

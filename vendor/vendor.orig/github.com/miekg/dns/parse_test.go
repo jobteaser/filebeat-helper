@@ -317,13 +317,13 @@ func TestParseDirectiveMisc(t *testing.T) {
 		"$ORIGIN miek.nl.\na IN NS b": "a.miek.nl.\t3600\tIN\tNS\tb.miek.nl.",
 		"$TTL 2H\nmiek.nl. IN NS b.":  "miek.nl.\t7200\tIN\tNS\tb.",
 		"miek.nl. 1D IN NS b.":        "miek.nl.\t86400\tIN\tNS\tb.",
-		`name. IN SOA  a6.nstld.com. hostmaster.nic.name. (
+		`name. IN SOA  a6.nstld.com. hostmain.nic.name. (
         203362132 ; serial
         5m        ; refresh (5 minutes)
         5m        ; retry (5 minutes)
         2w        ; expire (2 weeks)
         300       ; minimum (5 minutes)
-)`: "name.\t3600\tIN\tSOA\ta6.nstld.com. hostmaster.nic.name. 203362132 300 300 1209600 300",
+)`: "name.\t3600\tIN\tSOA\ta6.nstld.com. hostmain.nic.name. 203362132 300 300 1209600 300",
 		". 3600000  IN  NS ONE.MY-ROOTS.NET.":        ".\t3600000\tIN\tNS\tONE.MY-ROOTS.NET.",
 		"ONE.MY-ROOTS.NET. 3600000 IN A 192.168.1.1": "ONE.MY-ROOTS.NET.\t3600000\tIN\tA\t192.168.1.1",
 	}
@@ -520,7 +520,7 @@ func TestParseFailure(t *testing.T) {
 func TestOmittedTTL(t *testing.T) {
 	zone := `
 $ORIGIN example.com.
-example.com. 42 IN SOA ns1.example.com. hostmaster.example.com. 1 86400 60 86400 3600 ; TTL=42 SOA
+example.com. 42 IN SOA ns1.example.com. hostmain.example.com. 1 86400 60 86400 3600 ; TTL=42 SOA
 example.com.        NS 2 ; TTL=42 absolute owner name
 @                   MD 3 ; TTL=42 current-origin owner name
                     MF 4 ; TTL=42 leading-space implied owner name
@@ -562,17 +562,17 @@ func TestRelativeNameErrors(t *testing.T) {
 	}{
 		{
 			"relative owner name without origin",
-			"example.com 3600 IN SOA ns.example.com. hostmaster.example.com. 1 86400 60 86400 3600",
+			"example.com 3600 IN SOA ns.example.com. hostmain.example.com. 1 86400 60 86400 3600",
 			"bad owner name",
 		},
 		{
 			"relative owner name in RDATA",
-			"example.com. 3600 IN SOA ns hostmaster 1 86400 60 86400 3600",
+			"example.com. 3600 IN SOA ns hostmain 1 86400 60 86400 3600",
 			"bad SOA Ns",
 		},
 		{
 			"origin reference without origin",
-			"@ 3600 IN SOA ns.example.com. hostmaster.example.com. 1 86400 60 86400 3600",
+			"@ 3600 IN SOA ns.example.com. hostmain.example.com. 1 86400 60 86400 3600",
 			"bad owner name",
 		},
 		{
@@ -640,7 +640,7 @@ b1slImA8YVJyuIDsj7kwzG7jnERNqnWxZ48AWkskmdHaVDP4BcelrTI3rMXdXF5D
 // Test with no known RR on the line
 func TestLineNumberError2(t *testing.T) {
 	tests := map[string]string{
-		"example.com. 1000 SO master.example.com. admin.example.com. 1 4294967294 4294967293 4294967295 100": "dns: expecting RR type or class, not this...: \"SO\" at line: 1:21",
+		"example.com. 1000 SO main.example.com. admin.example.com. 1 4294967294 4294967293 4294967295 100": "dns: expecting RR type or class, not this...: \"SO\" at line: 1:21",
 		"example.com 1000 IN TALINK a.example.com. b..example.com.":                                          "dns: bad TALINK NextName: \"b..example.com.\" at line: 1:57",
 		"example.com 1000 IN TALINK ( a.example.com. b..example.com. )":                                      "dns: bad TALINK NextName: \"b..example.com.\" at line: 1:60",
 		`example.com 1000 IN TALINK ( a.example.com.

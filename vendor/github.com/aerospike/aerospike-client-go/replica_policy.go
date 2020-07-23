@@ -21,11 +21,11 @@ package aerospike
 type ReplicaPolicy int
 
 const (
-	// MASTER reads from node containing key's master partition.
+	// MASTER reads from node containing key's main partition.
 	// This is the default behavior.
 	MASTER ReplicaPolicy = iota
 
-	// MASTER_PROLES Distributes reads across nodes containing key's master and replicated partitions
+	// MASTER_PROLES Distributes reads across nodes containing key's main and replicated partitions
 	// in round-robin fashion.  This option requires ClientPolicy.RequestProleReplicas
 	// to be enabled in order to function properly.
 	MASTER_PROLES
@@ -35,10 +35,10 @@ const (
 	// of nodes in the cluster and the overhead of requesting proles is not desired.
 	RANDOM
 
-	// SEQUENCE Tries node containing master partition first.
+	// SEQUENCE Tries node containing main partition first.
 	// If connection fails, all commands try nodes containing replicated partitions.
 	// If socketTimeout is reached, reads also try nodes containing replicated partitions,
-	// but writes remain on master node.
+	// but writes remain on main node.
 	//
 	// This option requires ClientPolicy.RequestProleReplicas to be enabled
 	// in order to function properly.

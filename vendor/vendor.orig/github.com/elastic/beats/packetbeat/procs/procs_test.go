@@ -85,7 +85,7 @@ func TestFindPidsByCmdlineGrep(t *testing.T) {
 		{path: "/proc/1/cgroup", contents: ""},
 		{path: "/proc/16/cmdline", contents: ""},
 		{path: "/proc/18/cgroup", contents: ""},
-		{path: "/proc/766/cmdline", contents: "nginx: master process /usr/sbin/nginx"},
+		{path: "/proc/766/cmdline", contents: "nginx: main process /usr/sbin/nginx"},
 		{path: "/proc/768/cmdline", contents: "nginx: worker process"},
 		{path: "/proc/769/cmdline", contents: "nginx: cache manager process"},
 		{path: "/proc/1091/cmdline", contents: "/home/sipscan/env/bin/python\000/home/sipscan/env/bin/gunicorn\000-w\0002\000-b\000127.0.0.1:8001\000sipscan.sipscan:app"},
@@ -121,7 +121,7 @@ func TestRefreshPids(t *testing.T) {
 		{path: "/proc/1/cgroup", contents: ""},
 		{path: "/proc/16/cmdline", contents: ""},
 		{path: "/proc/18/cgroup", contents: ""},
-		{path: "/proc/766/cmdline", contents: "nginx: master process /usr/sbin/nginx"},
+		{path: "/proc/766/cmdline", contents: "nginx: main process /usr/sbin/nginx"},
 		{path: "/proc/768/cmdline", contents: "nginx: worker process"},
 		{path: "/proc/769/cmdline", contents: "nginx: cache manager process"},
 	}

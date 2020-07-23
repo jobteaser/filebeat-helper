@@ -79,7 +79,7 @@ func TestNestedProperty(t *testing.T) {
 		t.Fatalf("Expected vm.Config to be set")
 	}
 
-	if vm.Config.Name != "kubernetes-master" {
+	if vm.Config.Name != "kubernetes-main" {
 		t.Errorf("Got: %s", vm.Config.Name)
 	}
 

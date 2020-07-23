@@ -85,7 +85,7 @@ func parseRemoteURL(remoteURL string) (gitRepo, error) {
 
 func getRefAndSubdir(fragment string) (ref string, subdir string) {
 	refAndDir := strings.SplitN(fragment, ":", 2)
-	ref = "master"
+	ref = "main"
 	if len(refAndDir[0]) != 0 {
 		ref = refAndDir[0]
 	}

@@ -34,8 +34,8 @@ var namespaceMapping = map[specs.NamespaceType]configs.NamespaceType{
 var mountPropagationMapping = map[string]int{
 	"rprivate": syscall.MS_PRIVATE | syscall.MS_REC,
 	"private":  syscall.MS_PRIVATE,
-	"rslave":   syscall.MS_SLAVE | syscall.MS_REC,
-	"slave":    syscall.MS_SLAVE,
+	"rsubordinate":   syscall.MS_SLAVE | syscall.MS_REC,
+	"subordinate":    syscall.MS_SLAVE,
 	"rshared":  syscall.MS_SHARED | syscall.MS_REC,
 	"shared":   syscall.MS_SHARED,
 	"":         syscall.MS_PRIVATE | syscall.MS_REC,
@@ -617,11 +617,11 @@ func parseMountOptions(options []string) (int, []int, string) {
 	}{
 		"private":     {false, syscall.MS_PRIVATE},
 		"shared":      {false, syscall.MS_SHARED},
-		"slave":       {false, syscall.MS_SLAVE},
+		"subordinate":       {false, syscall.MS_SLAVE},
 		"unbindable":  {false, syscall.MS_UNBINDABLE},
 		"rprivate":    {false, syscall.MS_PRIVATE | syscall.MS_REC},
 		"rshared":     {false, syscall.MS_SHARED | syscall.MS_REC},
-		"rslave":      {false, syscall.MS_SLAVE | syscall.MS_REC},
+		"rsubordinate":      {false, syscall.MS_SLAVE | syscall.MS_REC},
 		"runbindable": {false, syscall.MS_UNBINDABLE | syscall.MS_REC},
 	}
 	for _, o := range options {

@@ -442,10 +442,10 @@ func ensureShared(path string) error {
 	return nil
 }
 
-// Ensure mount point on which path is mounted, is either shared or slave.
-func ensureSharedOrSlave(path string) error {
+// Ensure mount point on which path is mounted, is either shared or subordinate.
+func ensureSharedOrSubordinate(path string) error {
 	sharedMount := false
-	slaveMount := false
+	subordinateMount := false
 
 	sourceMount, optionalOpts, err := getSourceMount(path)
 	if err != nil {
@@ -457,14 +457,14 @@ func ensureSharedOrSlave(path string) error {
 		if strings.HasPrefix(opt, "shared:") {
 			sharedMount = true
 			break
-		} else if strings.HasPrefix(opt, "master:") {
-			slaveMount = true
+		} else if strings.HasPrefix(opt, "main:") {
+			subordinateMount = true
 			break
 		}
 	}
 
-	if !sharedMount && !slaveMount {
-		return fmt.Errorf("path %s is mounted on %s but it is not a shared or slave mount", path, sourceMount)
+	if !sharedMount && !subordinateMount {
+		return fmt.Errorf("path %s is mounted on %s but it is not a shared or subordinate mount", path, sourceMount)
 	}
 	return nil
 }
@@ -507,8 +507,8 @@ var (
 		"rprivate": mount.RPRIVATE,
 		"shared":   mount.SHARED,
 		"rshared":  mount.RSHARED,
-		"slave":    mount.SLAVE,
-		"rslave":   mount.RSLAVE,
+		"subordinate":    mount.SLAVE,
+		"rsubordinate":   mount.RSLAVE,
 	}
 
 	mountPropagationReverseMap = map[int]string{
@@ -516,8 +516,8 @@ var (
 		mount.RPRIVATE: "rprivate",
 		mount.SHARED:   "shared",
 		mount.RSHARED:  "rshared",
-		mount.SLAVE:    "slave",
-		mount.RSLAVE:   "rslave",
+		mount.SLAVE:    "subordinate",
+		mount.RSLAVE:   "rsubordinate",
 	}
 )
 
@@ -598,9 +598,9 @@ func setMounts(daemon *Daemon, s *specs.Spec, c *container.Container, mounts []c
 
 		// Determine property of RootPropagation based on volume
 		// properties. If a volume is shared, then keep root propagation
-		// shared. This should work for slave and private volumes too.
+		// shared. This should work for subordinate and private volumes too.
 		//
-		// For slave volumes, it can be either [r]shared/[r]slave.
+		// For subordinate volumes, it can be either [r]shared/[r]subordinate.
 		//
 		// For private volumes any root propagation value should work.
 		pFlag := mountPropagationMap[m.Propagation]
@@ -613,7 +613,7 @@ func setMounts(daemon *Daemon, s *specs.Spec, c *container.Container, mounts []c
 				s.Linux.RootfsPropagation = mountPropagationReverseMap[mount.SHARED]
 			}
 		} else if pFlag == mount.SLAVE || pFlag == mount.RSLAVE {
-			if err := ensureSharedOrSlave(m.Source); err != nil {
+			if err := ensureSharedOrSubordinate(m.Source); err != nil {
 				return err
 			}
 			rootpg := mountPropagationMap[s.Linux.RootfsPropagation]

@@ -79,7 +79,7 @@ type ClientPolicy struct {
 	// This option is required if there is a need to distribute reads across proles.
 	// If RequestProleReplicas is enabled, all prole partition maps will be cached on the client which results in
 	// extra storage multiplied by the replication factor.
-	// The default is false (only request master replicas and never prole replicas).
+	// The default is false (only request main replicas and never prole replicas).
 	RequestProleReplicas bool // false
 
 	// TlsConfig specifies TLS secure connection policy for TLS enabled servers.

@@ -28,11 +28,11 @@ import (
 
 const (
 	_PartitionGeneration = "partition-generation"
-	_ReplicasMaster      = "replicas-master"
+	_ReplicasMain      = "replicas-main"
 	_ReplicasAll         = "replicas-all"
 )
 
-// Parse node's master (and optionally prole) partitions.
+// Parse node's main (and optionally prole) partitions.
 type partitionParser struct {
 	pmap           partitionMap
 	buffer         []byte
@@ -47,9 +47,9 @@ func newPartitionParser(node *Node, partitionCount int, requestProleReplicas boo
 		partitionCount: partitionCount,
 	}
 
-	// Send format 1:  partition-generation\nreplicas-master\n
+	// Send format 1:  partition-generation\nreplicas-main\n
 	// Send format 2:  partition-generation\nreplicas-all\n
-	command := _ReplicasMaster
+	command := _ReplicasMain
 	if requestProleReplicas {
 		command = _ReplicasAll
 	}
@@ -74,7 +74,7 @@ func newPartitionParser(node *Node, partitionCount int, requestProleReplicas boo
 	if requestProleReplicas {
 		err = newPartitionParser.parseReplicasAll(node)
 	} else {
-		err = newPartitionParser.parseReplicasMaster(node)
+		err = newPartitionParser.parseReplicasMain(node)
 	}
 
 	if err != nil {
@@ -109,10 +109,10 @@ func (pp *partitionParser) parseGeneration() (int, error) {
 	return -1, NewAerospikeError(PARSE_ERROR, fmt.Sprintf("Failed to find partition-generation value"))
 }
 
-func (pp *partitionParser) parseReplicasMaster(node *Node) error {
+func (pp *partitionParser) parseReplicasMain(node *Node) error {
 	// Use low-level info methods and parse byte array directly for maximum performance.
-	// Receive format: replicas-master\t<ns1>:<base 64 encoded bitmap1>;<ns2>:<base 64 encoded bitmap2>...\n
-	if err := pp.expectName(_ReplicasMaster); err != nil {
+	// Receive format: replicas-main\t<ns1>:<base 64 encoded bitmap1>;<ns2>:<base 64 encoded bitmap2>...\n
+	if err := pp.expectName(_ReplicasMain); err != nil {
 		return err
 	}
 
